@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner renders Spinner with children 1`] = `
+<div
+  className="test c-Spinner"
+>
+  <span
+    className="c-Spinner__text"
+  >
+    <p>
+      Some Spinner test text.
+    </p>
+  </span>
+</div>
+`;
+
+exports[`Spinner renders Spinner without children 1`] = `
+<div
+  className="test c-Spinner"
+/>
+`;

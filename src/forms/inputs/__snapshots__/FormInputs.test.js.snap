@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormInputs renders TextInput 1`] = `
+<HtmlInput
+  className="test"
+  type="text"
+  value="some test value"
+/>
+`;
+
+exports[`FormInputs renders TextInput 2`] = `
+<HtmlInput
+  className="test"
+  type="number"
+  value="some test value"
+/>
+`;
+
+exports[`FormInputs renders TextInput 3`] = `
+<HtmlInput
+  className="test"
+  type="email"
+  value="some test value"
+/>
+`;
