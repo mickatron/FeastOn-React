@@ -1,0 +1,26 @@
+@import '../../lib';
+
+.c-Slider {
+  width: 50%;
+
+  &__button {
+    border: 0;
+    background: #ccc;
+    outline: none;
+    height: 24px;
+    width: 24px;
+
+  }
+  
+  &__input {
+    display: none;
+  }
+
+  &__track {
+    position: relative;
+    height: 3px;
+    background: #000;
+    width: 75%;
+    margin: 0 auto;
+  }
+}

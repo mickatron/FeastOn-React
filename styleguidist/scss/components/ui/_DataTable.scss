@@ -1,0 +1,9 @@
+@import '../../lib';
+
+.c-DataTable {
+  th,
+  td {
+    padding: $spacing-epsilon;
+    border-bottom: map-get($base, border-style);
+  }
+}

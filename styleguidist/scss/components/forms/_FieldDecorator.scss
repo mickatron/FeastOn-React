@@ -1,0 +1,44 @@
+@import '../../lib';
+
+.f-FieldDecorator {
+
+  &--required{
+    label {
+      position: relative;
+    }
+
+    label:after {
+      @include font-size(epsilon);
+      content: 'required *';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      color: get-color(grey-light);
+      text-transform: none;
+    }
+  }
+  &--valid{
+    input {
+      border: 1px solid get-color(base, truthy, light, map-get($base, shade));
+    }
+  }
+  &--invalid{
+    input {
+      border: 1px solid get-color(base, falsey, light, map-get($base, shade));
+
+      &:after {
+        content: '';
+        background: get-color(base, falsey, light, map-get($base, shade));
+        width: $spacing-delta;
+        height: $spacing-delta;
+      }
+    }
+  }
+
+
+  &--invalid.f-FieldDecorator--required {
+    label:after {
+      color: get-color(base, falsey, light, map-get($base, shade));
+    }
+  }
+}

@@ -1,0 +1,1 @@
+\* Example given in parent component example.

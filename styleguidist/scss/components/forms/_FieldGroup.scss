@@ -1,0 +1,10 @@
+@import '../../lib';
+
+.c-FieldGroup {
+  .c-Field {
+    &:first-child {
+      // margin-top: 0;
+    }
+  }
+
+}

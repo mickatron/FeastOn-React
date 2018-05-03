@@ -1,0 +1,26 @@
+@import '../../lib';
+
+@mixin message($color) {
+  background: get-color(base, $color, light, 35%);
+  border: 1px solid get-color($color);
+  color: get-color($color);
+}
+
+
+.Message {
+  margin:  $spacing-delta 0;
+  padding: $spacing-delta;
+
+  &--falsy {
+    @include message(falsey);
+  }
+  &--info {
+    @include message(info);
+  }
+  &--truthy {
+    @include message(truthy);
+  }
+  &--warning {
+    @include message(warn);
+  }
+}

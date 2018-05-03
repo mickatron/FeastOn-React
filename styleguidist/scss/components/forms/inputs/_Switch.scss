@@ -1,0 +1,55 @@
+@import '../../../lib';
+
+$switchWidth: 4.8rem;
+$switchHalveWidth: $switchWidth/2;
+
+.c-Switch {
+  position: relative;
+  background: get-color(white);
+  width: $switchWidth;
+  height: $switchHalveWidth;
+  border-radius: $switchHalveWidth;
+  border: map-get($base, border-style);
+  border-width: 1px;
+  
+  &:focus {
+    outline: none;
+  }
+  
+  &__slider {
+    display: block;
+    position: absolute;
+    border-radius: $switchHalveWidth;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: get-color(alpha);
+    transition: all 250ms;
+  }
+
+  &__text{
+    @include pos-v-center();
+    @include font-size(epsilon);
+    display: block;
+    position: absolute;
+    text-transform: uppercase;
+    right: $spacing-epsilon;
+  }
+
+  &--true {
+    .c-Switch__slider {
+      left: calc(100% - 2.4rem + 1px);
+    }
+
+    .c-Switch__text {
+      right: auto;
+      left: $spacing-epsilon;
+    }
+  }
+
+  & input[type=checkbox] {
+    @include off-screen();
+  }
+
+}

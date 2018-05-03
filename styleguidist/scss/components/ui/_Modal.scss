@@ -1,0 +1,12 @@
+@import '../../lib';
+
+.Dialog {  
+  @include pos-center;
+  position: absolute;
+  border: map-get($base, border-style);
+  background: get-color(white);
+  padding: $spacing-delta;
+  width: 50%;
+  
+
+}

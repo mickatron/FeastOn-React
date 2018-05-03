@@ -1,0 +1,19 @@
+@import '../../lib';
+
+.Tile {
+  border: map-get($base, border-style);
+  background: get-color(white);
+  padding: $spacing-delta;
+  
+  &__header {
+  
+  }
+  
+  &__content {
+  
+  }
+  
+  &__footer {
+  
+  }
+}

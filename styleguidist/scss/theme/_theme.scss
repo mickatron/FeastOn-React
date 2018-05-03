@@ -1,0 +1,28 @@
+@import '../lib';
+
+nav {
+  // Accordion
+  a[href="/#accordionicondoc"],  
+  // Button
+  a[href="/#buttonicondoc"],  
+  // Dialog
+  a[href="/#dialogcontentdoc"],
+  a[href="/#dialogfooterdoc"],
+  a[href="/#dialogheaderdoc"],
+  // Grid
+  a[href="/#gridcelldoc"],
+  a[href="/#gridrowdoc"],
+  // Message
+  a[href="/#messagecontentdoc"],
+  a[href="/#messagefooterdoc"],
+  a[href="/#messageheaderdoc"],
+  // Menu
+  a[href="/#menuitemdoc"],
+  // Tile
+  a[href="/#tilecontentdoc"],
+  a[href="/#tilefooterdoc"],
+  a[href="/#tileheaderdoc"],
+  a[href="/#tilemetadoc"] {
+    padding-left: $spacing-epsilon !important;
+  }
+}

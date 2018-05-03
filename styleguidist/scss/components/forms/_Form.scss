@@ -1,0 +1,19 @@
+@import '../../lib';
+
+.c-Form {
+
+  label {
+    @include font-size(epsilon);
+    text-transform: uppercase;
+  }
+
+  input {
+    background-color: get-color(base, grey-light, light, map-get($base, shade));
+    &:focus {
+      outline: 0;
+      border-color: get-color(base, alpha, light, map-get($base, shade));
+      background-color: get-color(base, grey-light, light, map-get($base, shade)*1.4);
+    }
+  }
+
+}

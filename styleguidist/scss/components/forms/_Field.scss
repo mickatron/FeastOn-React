@@ -1,0 +1,12 @@
+@import '../../lib';
+
+.c-Field {
+  //padding: $spacing-epsilon;
+  
+  &__errorMessage {
+    color: get-color(white);
+    margin: $spacing-epsilon 0;
+    padding: $spacing-epsilon;
+    background: get-color(base, falsey, light, map-get($base, shade));
+  }
+}

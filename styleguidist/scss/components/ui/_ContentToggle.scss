@@ -1,0 +1,45 @@
+@import '../../lib';
+
+.c-ContentToggle {
+
+  &__header {
+    display: flex;  
+    margin: 0;
+  }
+  
+  &__icon {
+    margin-left: auto;
+
+  }
+
+  &__content {
+    display: none;
+  }
+
+  &--open {
+    .c-ContentToggle__icon {
+      transform: rotate(-90deg);
+    }
+    .c-ContentToggle__content {
+      display: block;
+    }
+  }
+
+  &--accordion {
+
+  }
+
+  &--dropDown {
+    position: relative;
+
+    .c-ContentToggle__content{
+      position: absolute;
+      border: map-get($base, border-style);
+      background: get-color(white);
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      transform: translateY(100%);
+    }
+  }
+}

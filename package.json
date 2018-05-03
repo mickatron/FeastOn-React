@@ -1,0 +1,53 @@
+{
+  "name": "react-feast",
+  "version": "0.0.1",
+  "description": "A react component library.",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "node-sass-chokidar styleguidist/ -o styleguidist/",
+    "cover": "",
+    "watch-css": "npm run build-css && node-sass-chokidar styleguidist/ -o styleguidist/ --watch --recursive",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "test": "jest"
+  },
+  "author": "Michael Hargreaves",
+  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "gulp": "^3.9.1",
+    "lodash": "^4.17.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "7.2.3",
+    "babel-jest": "20.0.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react-app": "^3.1.1",
+    "babel-runtime": "6.26.0",
+    "breakpoint-sass": "^2.7.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.3",
+    "eslint": "4.9.0",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.4.0",
+    "feast-on-sass": "../Sass",
+    "jest": "^22.4.2",
+    "node-sass-chokidar": "^1.1.0",
+    "react-router-dom": "^4.2.2",
+    "react-styleguidist": "^7.0.1",
+    "react-test-renderer": "^16.3.0",
+    "webpack": "3.8.1",
+    "webpack-blocks": "^1.0.0"
+  },
+  "jest": {
+    "roots": ["elements","forms","HOC","modules","proptypes","utils"],
+    "setupFiles": ["<rootDir>/scripts/test.js"]
+  }
+}

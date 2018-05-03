@@ -1,0 +1,108 @@
+@import '../lib';
+// Text 
+// -------------------------------------------- \\
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-center {
+  text-align: center;
+}
+
+ 
+// Text Size Classes
+// -------------------------------------------- \\
+
+.text-giga {
+  @include font-size(giga);
+}
+
+.text-mega {
+  @include font-size(mega);
+}
+
+.text-kilo {
+  @include font-size(kilo);
+}
+
+h1,
+.text-alpha {
+  @include font-size(alpha);
+}
+
+h2,
+.text-beta {
+  @include font-size(beta);
+}
+
+h3,
+.text-gamma {
+  @include font-size(gamma);
+}
+
+p,
+h4,
+.text-delta {
+  @include font-size(delta);
+}
+
+h5,
+.text-epsilon,
+code,
+kbd,
+pre,
+samp {
+  @include font-size(epsilon);
+}
+
+h6,
+.text-zeta {
+  @include font-size(zeta);
+}
+
+.text-milli {
+  @include font-size(milli);
+}
+
+.text-micro {
+  @include font-size(micro);
+}
+
+// Utility
+// -------------------------------------------- \\
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.accessible-hide {
+  @include accessible-hide;
+}
+
+.remove-list-style {
+  @include remove-list-style;
+}
+
+.inline-menu {
+  @include menu-list(inline);
+
+  li {
+    margin-right: 1rem;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
