@@ -14,13 +14,15 @@ class Label extends React.PureComponent {
      * If we used `this.props.children` instead the elements `id` prop would have to conform
      * to some interface.
      * Using a render prop we can pass in custom and third-party input Components. */
-    input: PropTypes.func.isRequired,
+    input: PropTypes.shape({
+      component: PropTypes.func.isRequired,
+    }),
     /** Should the label be rendered to the left or right of the input. */
-    renderInput: PropTypes.oneOf(['left', 'right']),
+    renderOrder: PropTypes.oneOf(['first', 'last']),
   }
 
   static defaultProps = {
-    renderInput: 'right',
+    renderOrder: 'first',
   }
 
   componentWillMount() {
@@ -34,16 +36,17 @@ class Label extends React.PureComponent {
   render() {
     const {
       text,
-      input,
-      renderInput,
+      input: {component,  ...otherInputProps},
+      renderOrder,
     } = this.props;
-
     const { uid } = this;
+    const inputProps = { ...otherInputProps, uid };
+
     return (
       <React.Fragment>
-        {renderInput === 'left' && input({ uid })}
+        {renderOrder === 'first' && component(inputProps)}
         <span className="f-Label__text">{text}</span>
-        {renderInput === 'right' && input({ uid })}
+        {renderOrder === 'last' && component(inputProps)}
       </React.Fragment>
     );
   }

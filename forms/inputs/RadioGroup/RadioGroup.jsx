@@ -16,6 +16,20 @@ class RadioGroup extends React.PureComponent {
       label: PropTypes.string.isRequired,
       value: PropTypes.string.isRequired,
     })).isRequired,
+    value: PropTypes.string,
+  }
+
+  state = {
+    value = this.props.value,
+  }
+
+  onChange = (event) => {
+    const { checked, value } = event.target;
+    if (checked && value) { 
+      this.setState({ value });
+    } else if (!checked && value) {
+      this.setState({ value: null });
+    }
   }
 
   render() {
@@ -23,7 +37,7 @@ class RadioGroup extends React.PureComponent {
       name,
       radios,
     } = this.props;
-
+    const { value } = this.state;
     return (
       <React.Fragment>
         {radios.map(radio => (
@@ -37,6 +51,8 @@ class RadioGroup extends React.PureComponent {
                 type="radio"
                 name={name}
                 id={uid}
+                checked={value && value === radio.value}
+                onChange={this.onChange}
               />
             )}
           />

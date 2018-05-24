@@ -21,6 +21,7 @@ export default function uiWrapperHOC({
   // ...and returns another component...
   return class UiWrapper extends React.PureComponent {
     static propTypes = {
+      aria: PropTypes.object,
       /** The type of element to render the component as. */
       as: asType,
       /** A custom className. */
@@ -32,7 +33,8 @@ export default function uiWrapperHOC({
         PropTypes.oneOf(modifiersAll),
         PropTypes.arrayOf(PropTypes.oneOf(modifiersAll)),
       ]),
-      // TODO: should be renamed: widthClass, span,
+      theme: PropTypes.string,
+      // TODO: should be renamed: widthClass, span, helpers...
       // width attribute
       /** Width className */
       widthClass: PropTypes.oneOf(widths),
@@ -40,10 +42,18 @@ export default function uiWrapperHOC({
 
     static defaultProps = {
       as: element,
-      className: undefined,
-      children: undefined,
-      modifier: undefined,
-      widthClass: undefined,
+      className: null,
+      children: null,
+      modifier: null,
+      widthClass: null,
+    }
+    state = {
+      aria: this.props.aria,
+    }
+
+    ariaHandler = (newState, merge = true) => {
+      const aria = merge ? {...this.state.aria, ...newState} : newState;
+      this.setState({aria});
     }
 
     render() {
@@ -52,10 +62,13 @@ export default function uiWrapperHOC({
         className,
         modifier,
         widthClass,
+        theme,
         ...other
       } = this.props;
+      const { aria } = this.state;
       const Element = as;
 
+      const themeModifier = theme ? `${wrapperClassName}--${theme}` : null;
       // TODO: refactor these elsewhere
       // Modifier classNames
       const modifierClassNames = Array.isArray(modifier)
@@ -82,11 +95,18 @@ export default function uiWrapperHOC({
       // Notice that we pass through any additional props
       return (
         <Element
-          className={classnames(className, wrapperClassName, modifierClassNames, widthClass)}
+          className={classnames(
+            className, 
+            wrapperClassName, 
+            themeModifier, 
+            modifierClassNames, 
+            widthClass
+          )}
           {...other}
+          {...aria}
         >
           { Component
-            ? <Component {...wrapperProps} />
+            ? <Component ariaHandler={ariaHandler} {...wrapperProps} />
             : this.props.children
           }
         </Element>
